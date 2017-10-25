@@ -13,6 +13,8 @@
 !/log/.keep
 !/tmp/.keep
 
+.env
+
 /node_modules
 /yarn-error.log
 
@@ -20,3 +22,6 @@
 /public/packs
 /public/packs-test
 /node_modules
+
+# Ignore database config file, use the sample on the server
+/config/database.yml
