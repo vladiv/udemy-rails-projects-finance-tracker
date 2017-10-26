@@ -9,7 +9,9 @@ environment.plugins.set(
     jQuery: 'jquery',
     jquery: 'jquery',
     'window.jQuery': 'jquery',
-    Popper: ['popper.js', 'default']
+    Popper: ['popper.js', 'default'],
+    Rails: 'rails-ujs',
+    Turbolinks: 'turbolinks'
   })
 )
 
