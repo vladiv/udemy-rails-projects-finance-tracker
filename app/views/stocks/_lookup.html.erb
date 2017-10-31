@@ -1,0 +1,18 @@
+<div id="stock-lookup">
+  <h3>Search for stocks</h3>
+  <%= form_tag search_stocks_path, remote:true, method: :get, id: 'stock-lookup-form' do %>
+    <div class="row">
+      <div class="form-group col-md-9">
+        <%= text_field_tag :stock, params[:stock], placeholder: 'Stock ticker symbol', autofocus: true, class: 'form-control form-control-lg search-box' %>
+      </div>
+      <div class="form-group col-md-3">
+        <%= button_tag(type: :submit, class: 'btn btn-block btn-lg btn-success') do %>
+          <i class="fa fa-search" aria-hidden="true"></i> Look up a stock
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+  <div id="stock-lookup-results-wrapper">
+    <%= render 'stocks/stock', stock: @stock %>
+  </div>
+</div>

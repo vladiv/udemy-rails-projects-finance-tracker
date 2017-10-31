@@ -1,0 +1,13 @@
+<%= render 'common/spinner' %>
+<% if stock.present? %>
+  <div id="stock-lookup-results">
+    <div class="card bg-light d-inline-flex">
+      <div class="card-body">
+        <strong>Symbol:</strong> <%= stock.ticker %>
+        <strong>Name:</strong> <%= stock.name %>
+        <strong>Price:</strong> <%= stock.price %>
+      </div>
+    </div>
+  </div>
+<% end %>
+<div id="stock-lookup-errors" style="display: none;">Stock was not found</div>
