@@ -2,6 +2,7 @@
 
 import 'bootstrap';
 import stocks from 'app/stocks';
+import friends from 'app/friends';
 
 export default function () {
   Rails.start();
@@ -9,6 +10,7 @@ export default function () {
 
   document.addEventListener('turbolinks:load', () => {
     stocks();
+    friends();
   });
 
   window.$ = $; // Need this global for JS requests

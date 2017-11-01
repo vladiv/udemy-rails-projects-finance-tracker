@@ -1,0 +1,22 @@
+<div id="friend-lookup">
+  <h3>Search for Friends</h3>
+  <%= form_tag search_friends_path, remote:true, method: :get, id: 'friend-lookup-form' do %>
+    <div class="row">
+      <div class="form-group col-md-9">
+        <%= text_field_tag :search_param,
+                            params[:search_param],
+                            placeholder: 'first name, last name or email',
+                            autofocus: true,
+                            class: 'form-control form-control-lg search-box' %>
+      </div>
+      <div class="form-group col-md-3">
+        <%= button_tag(type: :submit, class: 'btn btn-block btn-lg btn-success') do %>
+          <i class="fa fa-search" aria-hidden="true"></i> Look up a Person
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+  <div id="friend-lookup-results-wrapper">
+    <%= render 'friends/friend', users: @users %>
+  </div>
+</div>
