@@ -18,18 +18,13 @@ class Stock < ApplicationRecord
 
   def price
     begin
-      closing_price = StockQuote::Stock.quote(ticker).close
+      price = StockQuote::Stock.quote(ticker).l
+      price.gsub!(',','') if price.is_a?(String)
+      sprintf('%.2f', price)
     rescue
-      closing_price = nil
+      price = nil
     end
-    return "#{closing_price} (Closing)" if closing_price
-
-    begin
-      opening_price = StockQuote::Stock.quote(ticker).open
-    rescue
-      opening_price = nil
-    end
-    return "#{opening_price} (Opening)" if opening_price
+    return price if price
     'Unavailable'
   end
 end
